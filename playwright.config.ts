@@ -36,10 +36,16 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' }, // or 'chrome-beta'
-    },
+ {
+      name: 'chromium',
+      use: {
+        browserName: 'chromium',
+        launchOptions: {
+            executablePath: 'C:\\chromium-win64\\chrome-win\\chrome.exe'
+        }
+      }
+    }
+ ,
 
     /*{
       name: 'firefox',
