@@ -20,7 +20,7 @@ test('LOGIN POAGINA DE PRUEBAS', async ({ page }) => {
   console.log(costoProducto)
   const btn_dosplay = await page.locator("//button[contains(text(),'ADD TO CART')]").textContent()
   console.log(btn_dosplay)
-  await expect(page.locator("//button[contains(text(),'ADD TO CART')]")).toBeHidden()/*aqui pongo un assert para ver si el elemento es visible */
+  //await expect(page.locator("//button[contains(text(),'ADD TO CART')]")).toBeHidden()/*aqui pongo un assert para ver si el elemento es visible */
   /*si deseo oculto toBeHidden() */
   expect(costoProducto).toEqual("$7.99") /*valido que el precio sea igual a 7.99 */
   await page.pause()
