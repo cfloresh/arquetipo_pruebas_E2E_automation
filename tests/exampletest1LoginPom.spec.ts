@@ -69,7 +69,7 @@ if (!worksheet) {
 const testData: any[] = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
 test.describe('FLUJO DE COMPRAS COMPLETO', () => {
   for (const data of testData) {
-    test(`INPUT DATOS: ${data.firstName} ${data.lastName} ${data.postalCode} ${data.user} ${data.pass}`, { tag: ['@regresion', '@LoginOK'] } , async ({ page }, testInfo) => {
+    test(`INPUT DATOS: ${data.firstName} ${data.lastName} ${data.postalCode} ${data.user} ${data.pass}`, { tag: ['@regresion', '@flujoCompleto'] } , async ({ page }, testInfo) => {
       await page.goto('/v1/')
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
