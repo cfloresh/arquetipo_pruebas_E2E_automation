@@ -27,7 +27,7 @@ export default defineConfig({
   use: {
     headless: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://www.saucedemo.com',
+    baseURL: 'https://www.saucedemo.com', /*mandarlo en el data driven */
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',

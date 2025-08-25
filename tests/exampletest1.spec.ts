@@ -18,7 +18,7 @@ test('LOGIN POAGINA DE PRUEBAS', async ({ page }) => {
   /*creacion de assert */
   const costoProducto = await page.locator("//*[@id='inventory_item_container']/div/div/div/div[3]").textContent() /*de ese localizador deme el contenido*/
   console.log(costoProducto)
-  const btn_dosplay = await page.locator("//button[contains(text(),'ADD TO CART')]").textContent()
+  const btn_dosplay = await page.locator("//button[contains(text(),'ADD TO CA RT')]").textContent()
   console.log(btn_dosplay)
  
   expect(costoProducto).toEqual("$7.99") /*valido que el precio sea igual a 7.99 */
