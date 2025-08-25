@@ -19,9 +19,9 @@ if (!worksheet2) {
   throw new Error(`La hoja con nombre "${sheetName2}" no existe en el archivo Excel.`);
 }
 const testData2: any[] = XLSX.utils.sheet_to_json(worksheet2, { defval: '' });
-test.describe('LOGIN FAIL', () => {
+test.describe('TEST 001 LOGIN FAIL', () => {
   for (const data of testData2) {
-    test(`INPUT DATOS: ${data.user} ${data.pass}`, async ({ page }, testInfo) => {
+    test(`INPUT DATOS: ${data.user} ${data.pass}`, { tag: ['@regresion', '@LoginFail'] }, async ({ page }, testInfo) => {
       await page.goto('/v1/')
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
@@ -47,7 +47,7 @@ const testData3: any[] = XLSX.utils.sheet_to_json(worksheet3, { defval: '' });
 
 test.describe('LOGIN SUCCESS', () => {
   for (const data of testData3) {
-    test(`INPUT DATOS: ${data.user} ${data.pass}`, async ({ page }, testInfo) => {
+    test(`INPUT DATOS: ${data.user} ${data.pass}`, { tag: ['@regresion', '@LoginOK'] } , async ({ page }, testInfo) => {
       await page.goto('/v1/')
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
@@ -69,7 +69,7 @@ if (!worksheet) {
 const testData: any[] = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
 test.describe('FLUJO DE COMPRAS COMPLETO', () => {
   for (const data of testData) {
-    test(`INPUT DATOS: ${data.firstName} ${data.lastName} ${data.postalCode} ${data.user} ${data.pass}`, async ({ page }, testInfo) => {
+    test(`INPUT DATOS: ${data.firstName} ${data.lastName} ${data.postalCode} ${data.user} ${data.pass}`, { tag: ['@regresion', '@LoginOK'] } , async ({ page }, testInfo) => {
       await page.goto('/v1/')
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
