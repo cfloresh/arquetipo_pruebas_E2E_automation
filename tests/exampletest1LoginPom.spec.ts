@@ -5,6 +5,7 @@ import { lecturaExcelData } from '../pageobject/lecturaDatos'
 
 
 
+
 test('LOGIN FAIL',  { tag: ['@regresion', '@LoginFail'] },async ({ page } ,testInfo ) => {
      // Cargar datos de Excel antes de la prueba
     const datosexcel = await lecturaExcelData('test1', 2)
@@ -12,7 +13,7 @@ test('LOGIN FAIL',  { tag: ['@regresion', '@LoginFail'] },async ({ page } ,testI
     await expect(page).toHaveTitle('Swag Labs')
     const loginPageInterface = new LoginPageClass(page)
     const pcinterface = new CompraProcesoClass(page)
-    await loginPageInterface.loginPageNOk(datosexcel[1],datosexcel[2],testInfo)
+    await loginPageInterface.loginPageNOk(datosexcel.user,datosexcel.pass ,testInfo)
 
 });
 
@@ -24,7 +25,7 @@ test('LOGIN OK',  { tag: ['@regresion', '@LoginOK'] },async ({ page } ,testInfo 
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
       const pcinterface = new CompraProcesoClass(page)
-      await loginPageInterface.loginPageOk(datosexcel[1],datosexcel[2],testInfo)
+      await loginPageInterface.loginPageOk(datosexcel.user,datosexcel.pass,testInfo)
 
 });
 
@@ -35,7 +36,7 @@ test('PROCESO DE COMPRA',  { tag: ['@regresion', '@ProcesoCompra'] },async ({ pa
       await expect(page).toHaveTitle('Swag Labs')
       const loginPageInterface = new LoginPageClass(page)
       const pcinterface = new CompraProcesoClass(page)
-      await loginPageInterface.loginPageOk(datosexcel[4],datosexcel[5],testInfo)
-      await pcinterface.procesocompra(datosexcel[1],datosexcel[2],datosexcel[3], testInfo)
+      await loginPageInterface.loginPageOk(datosexcel.user,datosexcel.pass,testInfo)
+      await pcinterface.procesocompra(datosexcel.firstName,datosexcel.lastName, datosexcel.postalCode , testInfo)
 });
 
